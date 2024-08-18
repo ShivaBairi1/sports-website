@@ -1,0 +1,64 @@
+/* Style the form container */
+.event-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+/* Style the form heading */
+.event-form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Style form labels */
+.event-form label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Style text inputs and textareas */
+.event-form input[type="text"],
+.event-form input[type="datetime-local"],
+.event-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Style file input */
+.event-form input[type="file"] {
+    display: block;
+    margin-top: 5px;
+}
+
+/* Style the submit button */
+.event-form button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.event-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Add some spacing between fields */
+.event-form label + label {
+    margin-top: 20px;
+}
