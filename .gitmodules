@@ -1,0 +1,8 @@
+
+[submodule "sports-frontend"]
+    path = sports-frontend
+    url = https://github.com/yourusername/sports-frontend-repo.git
+[submodule "sports-frontend"]
+    path = sports-frontend
+    url = https://github.com/yourusername/sports-frontend-repo.git
+
