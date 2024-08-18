@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -16,7 +18,7 @@ import PlayerForm from './components/player/PlayerForm';
 import Dashboard from './components/Dashboard/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 import NewsList from './components/news/NewsList';
 import NewsDetail from './components/news/NewsDetail';
