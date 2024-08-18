@@ -1,0 +1,53 @@
+.event-list {
+    padding: 20px;
+}
+
+.category-selector {
+    margin-bottom: 20px;
+}
+
+.category-selector button {
+    margin-right: 10px;
+}
+
+.events {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.event-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    width: 300px;
+    text-align: center;
+}
+
+.event-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}.event-list {
+    padding: 20px;
+}
+
+.button {
+    margin-bottom: 20px;
+    padding: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
