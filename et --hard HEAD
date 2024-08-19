@@ -1,0 +1,23 @@
+[33m9f87fb5[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m Resolved merge conflict in package.json
+[33m6661b95[m Merge remote-tracking branch 'origin/master'
+[33ma441d58[m build issues
+[33m71f7e62[m build issues
+[33m7f304b1[m build issues
+[33mfe29a64[m build issues
+[33me024d91[m build issues
+[33m0510963[m Fix build issues
+[33ma361891[m Fix build issues
+[33m9d93a6b[m Updated dependencies and fixed issues
+[33mff4c7b5[m added footer and sports page
+[33ma376f66[m Add new files and updates
+[33me411ef9[m Merge branch 'master' of https://github.com/ShivaBairi1/Anurag-Sports-Website
+[33mf65ccb5[m Add and configure submodule sports-frontend
+[33m36d7312[m Fix build issues
+[33m1181935[m Restored package.json and regenerated package-lock.json
+[33m77569f9[m Resolved merge conflicts
+[33m743501c[m Merge remote-tracking branch 'origin/master'
+[33m2edc925[m Restored package.json and regenerated package-lock.json
+[33m3cfed48[m Resolved merge conflicts in package.json and package-lock.json
+[33meb64edc[m Initial commit of frontend files
+[33m0694123[m Initial commit
+[33m542cbd8[m Initialize project using Create React App
