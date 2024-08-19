@@ -7,7 +7,8 @@
     "start": "react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build": "npm install && react-scripts build", "preinstall": "npx npm-force-resolutions"
+    "build": "npm install && react-scripts build",
+    "preinstall": "npx npm-force-resolutions"
   },
   "resolutions": {
     "debug": "4.3.6"
@@ -15,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "color-name": "^2.0.0",
     "debug": "^4.3.6",
     "npm-force-resolutions": "^0.0.10",
     "react": "^18.3.1",
