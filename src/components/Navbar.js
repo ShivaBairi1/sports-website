@@ -2,14 +2,13 @@ import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import './Navbar.css';
 
 const AppNavbar = () => {
     const { user, logout } = useContext(AuthContext);
     const [expanded, setExpanded] = useState(false);
 
-    const handleToggle = () => setExpanded(prevExpanded => !prevExpanded);
+    const handleToggle = () => setExpanded(!expanded);
     const handleClose = () => setExpanded(false);
 
     return (
@@ -19,12 +18,12 @@ const AppNavbar = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={handleToggle} />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto" onClick={handleClose}>
-                        <NavDropdown title="About Us" id="about-us-dropdown">
+                        <NavDropdown title="About Us" id="about-us-dropdown" onClick={e => e.stopPropagation()}>
                             <NavDropdown.Item as={Link} to="/about-us/directors">Physical Directors</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/about-us/sports-infrastructure">Sports Infrastructure</NavDropdown.Item>
                         </NavDropdown>
 
-                        <NavDropdown title="Sports" id="sports-dropdown">
+                        <NavDropdown title="Sports" id="sports-dropdown" onClick={e => e.stopPropagation()}>
                             <NavDropdown title="Indoor Games" id="indoor-games-dropdown">
                                 <NavDropdown.Item as={Link} to="/sports/7">Chess</NavDropdown.Item>
                                 <NavDropdown.Item as={Link} to="/sports/8">Badminton</NavDropdown.Item>
@@ -42,7 +41,7 @@ const AppNavbar = () => {
                             </NavDropdown>
                         </NavDropdown>
 
-                        <NavDropdown title="Discover" id="discover-dropdown">
+                        <NavDropdown title="Discover" id="discover-dropdown" onClick={e => e.stopPropagation()}>
                             <NavDropdown.Item as={Link} to="/news">News</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/events">Events</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/gallery">Gallery</NavDropdown.Item>

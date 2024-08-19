@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-// import './NewsForm.css';
+import './NewsForm.css'; // Import the CSS file
 
 const NewsForm = () => {
     const [title, setTitle] = useState('');
@@ -8,6 +8,8 @@ const NewsForm = () => {
     const [sportId, setSportId] = useState('');
     const [sports, setSports] = useState([]);
     const [bannerImage, setBannerImage] = useState(null);
+    const [loading, setLoading] = useState(false); // Loading state
+    const [message, setMessage] = useState(''); // Success or error message
 
     useEffect(() => {
         const fetchSports = async () => {
@@ -24,6 +26,7 @@ const NewsForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true); // Start loading
         const formData = new FormData();
         formData.append('title', title);
         formData.append('content', content);
@@ -39,12 +42,17 @@ const NewsForm = () => {
                 }
             });
             console.log('News item created:', response.data);
+            setMessage('News item created successfully!');
             setTitle('');
             setContent('');
             setSportId('');
             setBannerImage(null);
+            document.querySelector('input[type="file"]').value = ''; // Clear file input
         } catch (error) {
             console.error('Error creating news item:', error);
+            setMessage('Failed to create news item. Please try again.');
+        } finally {
+            setLoading(false); // End loading
         }
     };
 
@@ -58,6 +66,7 @@ const NewsForm = () => {
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     required
+                    disabled={loading} // Disable input during loading
                 />
             </label>
             <label>
@@ -66,14 +75,22 @@ const NewsForm = () => {
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                     required
+                    disabled={loading} // Disable input during loading
                 />
             </label>
             <label>
                 Sport:
-                <select value={sportId} onChange={(e) => setSportId(e.target.value)} required>
+                <select
+                    value={sportId}
+                    onChange={(e) => setSportId(e.target.value)}
+                    required
+                    disabled={loading} // Disable select during loading
+                >
                     <option value="">Select a Sport</option>
                     {sports.map(sport => (
-                        <option key={sport.sport_id} value={sport.sport_id}>{sport.name}</option>
+                        <option key={sport.sport_id} value={sport.sport_id}>
+                            {sport.name}
+                        </option>
                     ))}
                 </select>
             </label>
@@ -83,9 +100,13 @@ const NewsForm = () => {
                     type="file"
                     accept="image/*"
                     onChange={(e) => setBannerImage(e.target.files[0])}
+                    disabled={loading} // Disable file input during loading
                 />
             </label>
-            <button type="submit">Submit</button>
+            <button type="submit" disabled={loading}>
+                {loading ? 'Submitting...' : 'Submit'}
+            </button>
+            {message && <p className={message.includes('Failed') ? 'error' : ''}>{message}</p>} {/* Display success/failure message */}
         </form>
     );
 };

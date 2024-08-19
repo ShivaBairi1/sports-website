@@ -6,10 +6,12 @@ const EventForm = () => {
     const [eventName, setEventName] = useState('');
     const [eventDate, setEventDate] = useState('');
     const [description, setDescription] = useState('');
-    const [location, setLocation] = useState(''); // Added location
+    const [location, setLocation] = useState('');
     const [bannerImage, setBannerImage] = useState(null);
     const [sports, setSports] = useState([]);
     const [selectedSportId, setSelectedSportId] = useState('');
+    const [loading, setLoading] = useState(false); // Loading state
+    const [message, setMessage] = useState(''); // Success or error message
 
     useEffect(() => {
         const fetchSports = async () => {
@@ -30,11 +32,12 @@ const EventForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true); // Start loading
         const formData = new FormData();
         formData.append('title', eventName);
         formData.append('date', eventDate);
         formData.append('description', description);
-        formData.append('location', location); // Append location to formData
+        formData.append('location', location);
         formData.append('sport_id', selectedSportId);
         if (bannerImage) {
             formData.append('banner_image', bannerImage);
@@ -47,14 +50,19 @@ const EventForm = () => {
                 }
             });
             console.log('Event created:', response.data);
+            setMessage('Event created successfully!');
             setEventName('');
             setEventDate('');
             setDescription('');
-            setLocation(''); // Clear location after submission
+            setLocation('');
             setBannerImage(null);
-            setSelectedSportId(''); // Clear sport_id after submission
+            setSelectedSportId('');
+            document.querySelector('input[type="file"]').value = ''; // Clear file input
         } catch (error) {
             console.error('Error creating event:', error);
+            setMessage('Failed to create event. Please try again.');
+        } finally {
+            setLoading(false); // End loading
         }
     };
 
@@ -68,6 +76,7 @@ const EventForm = () => {
                     value={eventName}
                     onChange={(e) => setEventName(e.target.value)}
                     required
+                    disabled={loading} // Disable input during loading
                 />
             </label>
             <label>
@@ -77,6 +86,7 @@ const EventForm = () => {
                     value={eventDate}
                     onChange={(e) => setEventDate(e.target.value)}
                     required
+                    disabled={loading} // Disable input during loading
                 />
             </label>
             <label>
@@ -85,6 +95,7 @@ const EventForm = () => {
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     required
+                    disabled={loading} // Disable input during loading
                 />
             </label>
             <label>
@@ -94,6 +105,7 @@ const EventForm = () => {
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
                     required
+                    disabled={loading} // Disable input during loading
                 />
             </label>
             <label>
@@ -102,6 +114,7 @@ const EventForm = () => {
                     value={selectedSportId}
                     onChange={(e) => setSelectedSportId(e.target.value)}
                     required
+                    disabled={loading} // Disable input during loading
                 >
                     <option value="">Select a sport</option>
                     {sports.map((sport) => (
@@ -117,9 +130,13 @@ const EventForm = () => {
                     type="file"
                     accept="image/*"
                     onChange={handleFileChange}
+                    disabled={loading} // Disable input during loading
                 />
             </label>
-            <button type="submit">Upload Event</button>
+            <button type="submit" disabled={loading}>
+                {loading ? 'Submitting...' : 'Upload Event'}
+            </button>
+            {message && <p>{message}</p>} {/* Display success/failure message */}
         </form>
     );
 };

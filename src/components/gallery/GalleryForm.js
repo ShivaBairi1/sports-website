@@ -8,6 +8,8 @@ const GalleryForm = () => {
     const [image, setImage] = useState(null);
     const [sports, setSports] = useState([]);
     const [selectedSport, setSelectedSport] = useState('');
+    const [loading, setLoading] = useState(false); // Loading state
+    const [message, setMessage] = useState(''); // Message for success/failure
 
     useEffect(() => {
         const fetchSports = async () => {
@@ -24,6 +26,7 @@ const GalleryForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true); // Start loading
         const formData = new FormData();
         formData.append('title', title);
         formData.append('description', description);
@@ -37,12 +40,17 @@ const GalleryForm = () => {
                 }
             });
             console.log('Gallery item created:', response.data);
+            setMessage('Gallery item created successfully!');
             setTitle('');
             setDescription('');
             setImage(null);
             setSelectedSport('');
+            document.querySelector('input[type="file"]').value = ''; // Clear file input
         } catch (error) {
             console.error('Error creating gallery item:', error);
+            setMessage('Failed to create gallery item. Please try again.');
+        } finally {
+            setLoading(false); // End loading
         }
     };
 
@@ -56,6 +64,7 @@ const GalleryForm = () => {
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     required
+                    disabled={loading} // Disable input during loading
                 />
             </label>
             <label>
@@ -64,6 +73,7 @@ const GalleryForm = () => {
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     required
+                    disabled={loading} // Disable input during loading
                 />
             </label>
             <label>
@@ -72,6 +82,7 @@ const GalleryForm = () => {
                     value={selectedSport}
                     onChange={(e) => setSelectedSport(e.target.value)}
                     required
+                    disabled={loading} // Disable select during loading
                 >
                     <option value="">Select a sport</option>
                     {sports.map(sport => (
@@ -87,9 +98,13 @@ const GalleryForm = () => {
                     type="file"
                     onChange={(e) => setImage(e.target.files[0])}
                     required
+                    disabled={loading} // Disable input during loading
                 />
             </label>
-            <button type="submit">Upload</button>
+            <button type="submit" disabled={loading}>
+                {loading ? 'Uploading...' : 'Upload'}
+            </button>
+            {message && <p>{message}</p>} {/* Display success/failure message */}
         </form>
     );
 };

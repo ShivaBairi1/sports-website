@@ -33,7 +33,7 @@ import Directors from './components/directors';
 import SportDetailsPage from './components/SportDetailsPage';
 import UploadPhysicalDirectorForm from './components/form/UploadPhysicalDirectorForm';
 import UploadSportForm from './components/form/UploadSportForm';
-
+import Sports from './components/sports/Sports';
 function App() {
     const handlePlayerFormSubmit = async (formData) => {
         try {
@@ -64,7 +64,7 @@ function App() {
                                 <Route path="/gallery" element={<GalleryList />} />
                                 <Route path="/directors/:id" element={<Directorprofile />} />
                                 <Route path="/directors" element={<Directors />} />
-                                <Route path="/sports" element={<SportDetails />} />
+                                <Route path="/sports" element={<Sports />} />
                                 <Route path="/sports/:id" element={<SportDetails />} />
                                 {/* <Route path="/sports/indoor-games/chess" element={<SportDetails sport="chess" />} />
                                 <Route path="/sports/indoor-games/table-tennis" element={<SportDetails sport="table-tennis" />} />

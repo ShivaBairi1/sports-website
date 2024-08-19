@@ -1,0 +1,47 @@
+/* General styling for the sports section */
+.sports-offered {
+    padding: 40px 20px;
+    background-color: #f4f4f4;
+}
+
+.sports-offered h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #333;
+}
+
+.sports-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.sport-item {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 200px;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    color: #333;
+}
+
+.sport-item:hover {
+    transform: scale(1.05);
+}
+
+.sport-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.sport-item h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: 600;
+}

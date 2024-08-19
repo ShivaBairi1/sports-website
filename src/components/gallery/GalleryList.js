@@ -35,7 +35,7 @@ const GalleryList = () => {
                     </div>
                 ))}
             </div>
-            {/* <div id="a" className='button'>
+            {/* <div className='button'>
                 <Link to="/gallery/upload">Upload Gallery</Link>
             </div> */}
         </>
