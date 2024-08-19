@@ -1,0 +1,82 @@
+/* SportDetails.css
+
+.sport-details {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.sport-details h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sport-details img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.sport-details p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+} */
+/* SportPage.css */
+
+.sports-infrastructure {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.sports-infrastructure h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sports-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.sport-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.sport-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.sport-item img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.sport-item h2 {
+    font-size: 1.2rem;
+    margin: 15px 0;
+}
+
+.sport-item p {
+    padding: 0 15px 15px;
+    font-size: 0.9rem;
+}

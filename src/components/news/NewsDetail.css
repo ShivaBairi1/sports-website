@@ -1,0 +1,35 @@
+.news-detail {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff; /* Added a background color for better contrast */
+}
+
+.news-detail img {
+    width: 40%; /* Ensures the image takes the full width of its container */
+    height: auto; /* Maintains the aspect ratio */
+    border-radius: 8px;
+    margin-bottom: 15px; /* Adds spacing below the image */
+    object-fit: cover; /* Ensures the image covers the area while maintaining its aspect ratio */
+}
+
+.news-detail h1 {
+    margin-top: 10px;
+    color: #333;
+    font-size: 1.8rem; /* Increased font size for the title */
+    font-weight: 600; /* Makes the title bolder */
+}
+
+.news-detail p {
+    margin-top: 10px;
+    color: #666;
+    font-size: 1rem; /* Sets a consistent font size for paragraphs */
+}
+
+.news-detail small {
+    display: block;
+    margin-top: 10px;
+    color: #999;
+    font-size: 0.9rem; /* Slightly smaller font size for the date */
+}

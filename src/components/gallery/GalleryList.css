@@ -1,0 +1,64 @@
+/* General Styling */
+.gallery-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Reduced the minimum column size */
+    gap: 15px; /* Reduced gap between items */
+    max-width: 1000px; /* Reduced max-width */
+    margin: 0 auto;
+    padding: 15px; /* Reduced padding */
+}
+
+.gallery-item {
+    background-color: #f8f9fa;
+    border-radius: 6px; /* Slightly smaller border radius */
+    padding: 10px; /* Reduced padding */
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Smaller shadow */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px; /* Slightly smaller border radius */
+    margin-bottom: 8px; /* Reduced margin */
+    object-fit: cover;
+}
+
+.gallery-item h3 {
+    font-size: 18px; /* Reduced font size */
+    margin-bottom: 8px; /* Reduced margin */
+}
+
+.gallery-item p {
+    font-size: 14px; /* Reduced font size */
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .gallery-list {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item img {
+        height: 150px; /* Reduced height */
+    }
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px; /* Reduced margin */
+}
+
+.button a {
+    background-color: #007BFF;
+    color: white;
+    padding: 8px 16px; /* Reduced padding */
+    text-decoration: none;
+    border-radius: 4px; /* Slightly smaller border radius */
+    transition: background-color 0.3s ease;
+}
+
+.button a:hover {
+    background-color: #0056b3;
+}
